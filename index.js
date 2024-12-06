@@ -1,10 +1,15 @@
 let gridContainer = document.querySelector(".grid-container");
 let btnContainer = document.querySelector(".btn-container");
 
+createGrid(16);
+
 //make a grid / grid button based on user input
 
 function createGrid(gridNum) {
-    gridContainer.replaceChildren();
+    gridContainer.innerHTML = "";
+
+    const squareSize = 960 / gridNum;
+
     for (let i = 0; i < gridNum; i++) {
         let column = document.createElement("div");
         column.classList.add("columnDiv");
@@ -13,6 +18,9 @@ function createGrid(gridNum) {
         for (let j = 0; j < gridNum; j++) {
             let row = document.createElement("div");
             row.classList.add("rowDiv");
+
+            row.style.width = `${squareSize}px`;
+            row.style.height = `${squareSize}px`;
             column.appendChild(row);
         }
     }
@@ -43,6 +51,8 @@ btnContainer.appendChild(createGridBtn);
 
 //creating a 16x16 grid
 
+const squareSize = 960 / gridNum;
+
 for (let i = 0; i < 16; i++) {
     let column = document.createElement("div");
     column.classList.add("columnDiv");
@@ -51,6 +61,8 @@ for (let i = 0; i < 16; i++) {
     for (let j = 0; j < 16; j++) {
         let row = document.createElement("div");
         row.classList.add("rowDiv");
+        row.style.width = `${squareSize}px`;
+        row.style.height = `${squareSize}px`;
         column.appendChild(row);
     }
     fixedColorChange();
