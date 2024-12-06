@@ -13,3 +13,12 @@ for (let i = 0; i < 16; i++) {
         column.appendChild(row);
     }
 }
+
+//square color change
+
+let squares = document.querySelectorAll(".rowDiv");
+squares.forEach((square) => {
+    square.addEventListener("mouseenter", () => {
+        square.style.backgroundColor = "grey";
+    });
+});
