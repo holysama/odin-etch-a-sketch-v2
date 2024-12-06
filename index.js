@@ -16,26 +16,28 @@ function createGrid(gridNum) {
             column.appendChild(row);
         }
     }
-    fixedColorChange();
+    fixedColorChange()
 }
 
-function checkValue(num) {
-    if (num >= 1 && num <= 100 && !isNaN(num)) {
-        createGrid(num);
+function checkValue(value) {
+    value = prompt("Enter the number of squares per side for the new grid (1-100):");
+    
+    if (value === null) {
+        return;
+    }
+
+    value = Number(value);
+    if (value >= 1 && value <= 100 && !isNaN(value)) {
+        createGrid(value);
     }
     else {
-        getValuePrompt();
+        checkValue();
     }
-}
-
-function getValuePrompt() {
-    let value = Number(prompt("Enter the number of squares per side for the new grid (1-100):"));
-    checkValue(value);
 }
 
 let createGridBtn = document.createElement("button");
 createGridBtn.textContent = "Create a New Grid";
-createGridBtn.addEventListener("click", getValuePrompt);
+createGridBtn.addEventListener("click", checkValue);
 btnContainer.appendChild(createGridBtn);
 
 
