@@ -12,8 +12,19 @@
 
 .flex-container {
     display: flex;
+    flex-direction: column;
+}
+    
+.btn-container {
+    display: flex;
     justify-content: center;
     align-items: center;
+    height: 50px;
+}
+.grid-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     height: 100vh;
     background-color: white;
 }
