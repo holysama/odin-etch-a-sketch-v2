@@ -48,6 +48,18 @@ createGridBtn.textContent = "Create a New Grid";
 createGridBtn.addEventListener("click", checkValue);
 btnContainer.appendChild(createGridBtn);
 
+//colors buttons
+
+let fixedColorBtn = document.createElement("button");
+fixedColorBtn.textContent = "Grey Color";
+fixedColorBtn.addEventListener("click", fixedColorChange);
+btnContainer.appendChild(fixedColorBtn);
+
+let randomColorBtn = document.createElement("button");
+randomColorBtn.textContent = "Random Color";
+randomColorBtn.addEventListener("click", randomColorChange);
+btnContainer.appendChild(randomColorBtn);
+
 
 //creating a 16x16 grid
 
@@ -71,10 +83,23 @@ for (let i = 0; i < 16; i++) {
 //square fixed color change function
 
 function fixedColorChange() {
-    let squares = document.querySelectorAll(".rowDiv"); //have to make this a fucntion that i can recall
+    let squares = document.querySelectorAll(".rowDiv"); 
     squares.forEach((square) => {
         square.addEventListener("mouseenter", () => {
             square.style.backgroundColor = "grey";
         });
     });
 }
+
+//square random color change function
+
+function randomColorChange() {
+    let squares = document.querySelectorAll(".rowDiv"); 
+    squares.forEach((square) => {
+        square.addEventListener("mouseenter", () => {
+            let randomColor = Math.floor(Math.random()*16777215).toString(16)
+            square.style.backgroundColor = "#" + randomColor;
+        });
+    });
+}
+
